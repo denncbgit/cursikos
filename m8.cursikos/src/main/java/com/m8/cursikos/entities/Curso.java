@@ -1,14 +1,16 @@
 package com.m8.cursikos.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
+@Entity
 public class Curso {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idd;
+	private long id;
 	
 	@NotEmpty
 	private String nombre;

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org">
+<head >
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav ></nav>
+	
+	<form th:action="@{/crearUsuario}" th:object="${usuario}" method="POST" >
+		<input type="text" placeholder="username" th:field="${usuario.username}"></input>
+		<input type="text" placeholder="email" th:field="${usuario.email}"></input>
+		<input type="password" placeholder="password" th:field="${usuario.password}"></input>
+		<input type="submit" th:value="createUser"/>
+	</form>
+  <!-- Page Content -->
+
+      <div class = "starter-template">
+      	<h1>Listado de usuarios</h1>
+			<table class="table">
+	      		<thead>
+	      			<tr>
+	      				<th>Username</th>
+	      				<th>Password</th>
+	      				<th>Email</th>
+	      			</tr>
+	      		</thead>
+	      		<tbody>
+	      			<tr th:each="usuario : ${usuarios}">
+	      				<th th:text="${usuario.username}"></th>
+	      				<th th:text="${usuario.password}"></th>
+	      				<th th:text="${usuario.email}"></th>
+	      			</tr>
+	      		</tbody>
+	      	</table>
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+
+

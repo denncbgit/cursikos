@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org">
+<head th:replace="~{fragmentos/navAndHeader::head}">
+</head>
+
+<body>
+	<nav th:replace="~{fragmentos/navAndHeader::nav}"></nav>
+	
+	<h1>Es Bien</h1>
+	
+	<span th:text="${esBien}"></span>
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+</body>
+
+</html>

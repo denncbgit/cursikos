@@ -1,5 +1,6 @@
 package com.m8.cursikos.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -7,11 +8,12 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
+@Entity
 public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idd;
+	private long id;
 	
 	
 	@Pattern(regexp = "^[A-Za-z0-9_-]{2,16}$", message ="El nombre de Usuario debe tener como minimo 2 letras y como maximo 16 y solo debe contener (mayusculas, minusculas, numeros, '-' y '_')")
@@ -28,7 +30,7 @@ public class Usuario {
 	@NotEmpty
 	private String password;
 	
-	
+	private String EncPassword;
 	public Usuario() {}
 	
 	
@@ -47,44 +49,86 @@ public class Usuario {
 		return id;
 	}
 
+
+
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
+
+
 
 	public String getUsername() {
 		return username;
 	}
 
+
+
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
+
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
+
+
+	public String getEncPassword() {
+		return EncPassword;
+	}
+
+
+
+
+	public void setEncPassword(String encPassword) {
+		EncPassword = encPassword;
+	}
+
+
+
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((EncPassword == null) ? 0 : EncPassword.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
+
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -95,6 +139,11 @@ public class Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
+		if (EncPassword == null) {
+			if (other.EncPassword != null)
+				return false;
+		} else if (!EncPassword.equals(other.EncPassword))
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -115,11 +164,18 @@ public class Usuario {
 		return true;
 	}
 
+
+
+
 	@Override
 	public String toString() {
-		return "UsuarioEntity [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
-				+ "]";
+		return "Usuario [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
+				+ ", EncPassword=" + EncPassword + "]";
 	}
+
+
+
+	
 	
 	
 	
