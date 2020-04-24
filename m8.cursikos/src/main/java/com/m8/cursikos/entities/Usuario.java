@@ -7,7 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
-public class UsuarioEntity {
+public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,12 +29,12 @@ public class UsuarioEntity {
 	private String password;
 	
 	
-	public UsuarioEntity() {}
+	public Usuario() {}
 	
 	
 	
 	
-	public UsuarioEntity(String username,String email,String password) {
+	public Usuario(String username,String email,String password) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
@@ -94,7 +94,7 @@ public class UsuarioEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UsuarioEntity other = (UsuarioEntity) obj;
+		Usuario other = (Usuario) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;
