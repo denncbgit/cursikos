@@ -11,7 +11,7 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long idd;
 	
 	
 	@Pattern(regexp = "^[A-Za-z0-9_-]{2,16}$", message ="El nombre de Usuario debe tener como minimo 2 letras y como maximo 16 y solo debe contener (mayusculas, minusculas, numeros, '-' y '_')")

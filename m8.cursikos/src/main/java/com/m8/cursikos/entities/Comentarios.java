@@ -9,7 +9,7 @@ public class Comentarios {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long idd;
 	
 	@NotEmpty
 	private long usuario_fk; 

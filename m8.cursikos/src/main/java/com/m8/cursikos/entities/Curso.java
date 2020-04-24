@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 public class Curso {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long idd;
 	
 	@NotEmpty
 	private String nombre;
