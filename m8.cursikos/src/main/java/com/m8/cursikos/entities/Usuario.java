@@ -8,6 +8,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
 public class Usuario {
 	
@@ -33,8 +37,11 @@ public class Usuario {
 	private String EncPassword;
 	public Usuario() {}
 	
-	
-	
+
+	public Usuario(String username,String password) {
+		this.username = username;
+		this.password = password;
+	}
 	
 	public Usuario(String username,String email,String password) {
 		this.username = username;
@@ -112,7 +119,16 @@ public class Usuario {
 		EncPassword = encPassword;
 	}
 
-
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	
+	
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+	    return bCryptPasswordEncoder;
+	}
 
 
 	@Override

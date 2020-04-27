@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xlmns:th="https://www.thymeleaf.org">
+<html xlmns:th="https://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
 
 	<meta charset="UTF-8">
@@ -17,7 +18,7 @@
 
 	
   <!-- Navigation -->
-  <nav th:fragment="nav" class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <nav th:fragment="nav" th:switch="${usuario.}" class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="/">CursiKos</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,15 +30,21 @@
             <a class="nav-link" href="/">Home
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/usuario/formRegistro">Registro</a>
+          <li class="nav-item" sec:authorize="hasRole('ROLE_USER')">
+            <a class="nav-link" th:text="'Hola ' + ${#authentication.name}"></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+          <li class="nav-item" sec:authorize="!hasRole('ROLE_USER')">
+            <a class="nav-link"  href="/usuario/formRegistro" th:text="Registro"></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+          
+          <li class="nav-item" sec:authorize="!hasRole('ROLE_USER')">
+            <a class="nav-link" href="/usuario/formLogin">Login</a>
           </li>
+          
+          <li class="nav-item" sec:authorize="hasRole('ROLE_USER')">
+          	<a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+          </li>
+          <form th:action="@{/logout}" method="POST" id="logoutForm">
         </ul>
       </div>
     </div>
