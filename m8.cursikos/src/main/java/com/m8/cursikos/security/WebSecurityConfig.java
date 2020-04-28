@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -17,7 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	//eximir a este tipo de archivos para la seguridad
 	String [] archivosValidos =  new String[]{ "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**","/layer/**", "/templates/**"
 			, "/html/**", "/webjars/**", "/h2-console/**", "/jsp/**"};
-		
+	
 		@Autowired
 		UserDetailsServiceImpl userDetailsService;
 		
@@ -39,11 +38,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		        .antMatchers(archivosValidos ).permitAll()
 		        .antMatchers("/","/usuario/*").permitAll()//Marcamos las Url a las que se puede entrar sin registro
 		        .antMatchers("/admin*").access("hasRole('ADMIN')")//Marcamos que dentro de las rutras que empiece por admin solo podra entrar admin
-		        .antMatchers("/usuario*", "/usuario/login").access("hasRole('USER') or hasRole('ADMIN')")//lo mismo pero para usuario correitne y admin
+		        .antMatchers("/usuario*").access("hasRole('USER') or hasRole('ADMIN')")//lo mismo pero para usuario correitne y admin
 	                .anyRequest().authenticated()//Lo que no se contemple en las propiedades anteriores seran redirigidos a la pagina de login
 	                .and()
 	            .formLogin()
-	                //.loginPage("/login")
+	            	.loginPage("/formLogin")
+	            	.loginProcessingUrl("/login")
 	                .permitAll()
 	                .defaultSuccessUrl("/")
 	                .failureUrl("/error?error=true")
@@ -51,15 +51,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	                .passwordParameter("password")
 	                .and()
 	                .csrf().ignoringAntMatchers("/h2-console/**")
-            		.and()
-            		.headers().frameOptions().sameOrigin()
 	        		.and()
-//					.defaultSuccessUrl("/", true)
-//					.loginProcessingUrl("/auth/login-post")
-//					.permitAll()
-//					.and()
+	        		.headers().frameOptions().sameOrigin()
+	        		.and()
+//	                .loginPage("/formLogin")
+//	                .permitAll()
+//	                .defaultSuccessUrl("/")
+//	                .loginProcessingUrl("/login")
+//	                .failureUrl("/login?error=true")
+//	                .usernameParameter("username")
+//	                .passwordParameter("password")
+//	                .and()
+//	                .csrf().ignoringAntMatchers("/h2-console/**")
+//            		.and()
+//            		.headers().frameOptions().sameOrigin()
+//	        		.and()
 	            .logout()
-	                .permitAll()
+	                .logoutUrl("/logout")
 	                .logoutSuccessUrl("/");
             		
 	        
