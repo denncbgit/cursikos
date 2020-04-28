@@ -16,17 +16,15 @@ public class Comentarios {
 	@NotEmpty
 	private long usuario_fk; 
 	
-	private long curso_fk;
 	
 	@NotEmpty
 	private String Comentario;
 	
 	public Comentarios(){}
 
-	public Comentarios(@NotEmpty long usuario_fk, long curso_fk, @NotEmpty String comentario) {
+	public Comentarios( long usuario_fk,  String comentario) {
 		super();
 		this.usuario_fk = usuario_fk;
-		this.curso_fk = curso_fk;
 		Comentario = comentario;
 	}
 
@@ -46,14 +44,6 @@ public class Comentarios {
 		this.usuario_fk = usuario_fk;
 	}
 
-	public long getCurso_fk() {
-		return curso_fk;
-	}
-
-	public void setCurso_fk(long curso_fk) {
-		this.curso_fk = curso_fk;
-	}
-
 	public String getComentario() {
 		return Comentario;
 	}
@@ -67,7 +57,6 @@ public class Comentarios {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Comentario == null) ? 0 : Comentario.hashCode());
-		result = prime * result + (int) (curso_fk ^ (curso_fk >>> 32));
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + (int) (usuario_fk ^ (usuario_fk >>> 32));
 		return result;
@@ -87,8 +76,6 @@ public class Comentarios {
 				return false;
 		} else if (!Comentario.equals(other.Comentario))
 			return false;
-		if (curso_fk != other.curso_fk)
-			return false;
 		if (id != other.id)
 			return false;
 		if (usuario_fk != other.usuario_fk)
@@ -98,7 +85,7 @@ public class Comentarios {
 
 	@Override
 	public String toString() {
-		return "Comentarios [id=" + id + ", usuario_fk=" + usuario_fk + ", curso_fk=" + curso_fk + ", Comentario="
+		return "Comentarios [id=" + id + ", usuario_fk=" + usuario_fk + ", curso_fk="  + ", Comentario="
 				+ Comentario + "]";
 	}
 	

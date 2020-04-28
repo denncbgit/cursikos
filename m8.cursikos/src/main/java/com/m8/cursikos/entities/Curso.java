@@ -12,22 +12,22 @@ public class Curso {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@NotEmpty
 	private String nombre;
 	
-	@NotEmpty
 	private String image;
 	
-	@NotEmpty
-	private String metodoDePago;
+	private String descripcion;
 	
-	public Curso () {}
+	
+	private int precio;
+	
 
-	public Curso(String nombre, String image, String metodoDePago) {
-		super();
+	public Curso(String nombre, String image,  String descripcion,
+			  int precio) {
 		this.nombre = nombre;
 		this.image = image;
-		this.metodoDePago = metodoDePago;
+		this.descripcion = descripcion;
+		this.precio = precio;
 	}
 
 	public long getId() {
@@ -54,22 +54,32 @@ public class Curso {
 		this.image = image;
 	}
 
-	public String getMetodoDePago() {
-		return metodoDePago;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setMetodoDePago(String metodoDePago) {
-		this.metodoDePago = metodoDePago;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((image == null) ? 0 : image.hashCode());
-		result = prime * result + ((metodoDePago == null) ? 0 : metodoDePago.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + precio;
 		return result;
 	}
 
@@ -82,6 +92,11 @@ public class Curso {
 		if (getClass() != obj.getClass())
 			return false;
 		Curso other = (Curso) obj;
+		if (descripcion == null) {
+			if (other.descripcion != null)
+				return false;
+		} else if (!descripcion.equals(other.descripcion))
+			return false;
 		if (id != other.id)
 			return false;
 		if (image == null) {
@@ -89,24 +104,24 @@ public class Curso {
 				return false;
 		} else if (!image.equals(other.image))
 			return false;
-		if (metodoDePago == null) {
-			if (other.metodoDePago != null)
-				return false;
-		} else if (!metodoDePago.equals(other.metodoDePago))
-			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
 				return false;
 		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (precio != other.precio)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Curso [id=" + id + ", nombre=" + nombre + ", image=" + image + ", metodoDePago=" + metodoDePago + "]";
+		return "Curso [id=" + id + ", nombre=" + nombre + ", image=" + image + ", descripcion=" + descripcion
+				+ ", metodoDePago=" + ", precio=" + precio + "]";
 	}
 	
+	
+
 	
 	
 	

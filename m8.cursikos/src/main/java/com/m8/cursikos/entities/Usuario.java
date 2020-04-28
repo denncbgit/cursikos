@@ -41,6 +41,13 @@ public class Usuario {
 		this.email = email;
 		this.password = password;
 	}
+	
+	public Usuario(String username,String email,String password, boolean bool) {
+		this.username = username;
+		this.email = email;
+		this.EncPassword = password;
+		this.password = "Uscyero12";
+	}
 
 
 
