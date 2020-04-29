@@ -21,6 +21,7 @@ public class Curso {
 	
 	private int precio;
 	
+	public Curso() {}
 
 	public Curso(String nombre, String image,  String descripcion,
 			  int precio) {

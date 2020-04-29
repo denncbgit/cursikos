@@ -15,7 +15,7 @@ public class CompraCurso {
 	private long id;
 	
 	@NotNull
-	private long username_Fk;
+	private String usernameFk;
 	
 	@NotNull
 	private String productos;
@@ -26,72 +26,102 @@ public class CompraCurso {
 	@NotNull
 	private int valoracion;
 	
-	@NotNull
+	
 	private int amount;
 	
 	
-	
-	public CompraCurso(long username_Fk, String productos, String metodoPago, int valoracion, int amount) {
+	public CompraCurso() {
 		super();
-		this.username_Fk = username_Fk;
+	}
+
+
+	public CompraCurso(long id, String usernameFk, String productos, String metodoPago, int valoracion, int amount) {
+		super();
+		this.id = id;
+		this.usernameFk = usernameFk;
 		this.productos = productos;
 		this.metodoPago = metodoPago;
 		this.valoracion = valoracion;
 		this.amount = amount;
 	}
 
-	public long getUsername_Fk() {
-		return username_Fk;
+
+	public long getId() {
+		return id;
 	}
 
-	public void setUsername_Fk(long username_Fk) {
-		this.username_Fk = username_Fk;
+
+	public void setId(long id) {
+		this.id = id;
 	}
+
+
+	public String getUsernameFk() {
+		return usernameFk;
+	}
+
+
+	public void setUsernameFk(String usernameFk) {
+		this.usernameFk = usernameFk;
+	}
+
 
 	public String getProductos() {
 		return productos;
 	}
 
+
 	public void setProductos(String productos) {
 		this.productos = productos;
 	}
+
 
 	public String getMetodoPago() {
 		return metodoPago;
 	}
 
+
 	public void setMetodoPago(String metodoPago) {
 		this.metodoPago = metodoPago;
 	}
+
 
 	public int getValoracion() {
 		return valoracion;
 	}
 
+
 	public void setValoracion(int valoracion) {
 		this.valoracion = valoracion;
 	}
 
-	public float getAmount() {
+
+	public int getAmount() {
 		return amount;
 	}
+
 
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 
+
+	
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Float.floatToIntBits(amount);
+		result = prime * result + amount;
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((metodoPago == null) ? 0 : metodoPago.hashCode());
 		result = prime * result + ((productos == null) ? 0 : productos.hashCode());
-		result = prime * result + (int) (username_Fk ^ (username_Fk >>> 32));
+		result = prime * result + ((usernameFk == null) ? 0 : usernameFk.hashCode());
 		result = prime * result + valoracion;
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -102,7 +132,7 @@ public class CompraCurso {
 		if (getClass() != obj.getClass())
 			return false;
 		CompraCurso other = (CompraCurso) obj;
-		if (Float.floatToIntBits(amount) != Float.floatToIntBits(other.amount))
+		if (amount != other.amount)
 			return false;
 		if (id != other.id)
 			return false;
@@ -116,18 +146,25 @@ public class CompraCurso {
 				return false;
 		} else if (!productos.equals(other.productos))
 			return false;
-		if (username_Fk != other.username_Fk)
+		if (usernameFk == null) {
+			if (other.usernameFk != null)
+				return false;
+		} else if (!usernameFk.equals(other.usernameFk))
 			return false;
 		if (valoracion != other.valoracion)
 			return false;
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
-		return "CompraCurso [id=" + id + ", username_Fk=" + username_Fk + ", productos=" + productos + ", metodoPago="
+		return "CompraCurso [id=" + id + ", usernameFk=" + usernameFk + ", productos=" + productos + ", metodoPago="
 				+ metodoPago + ", valoracion=" + valoracion + ", amount=" + amount + "]";
 	}
+	
+	
+	
 	
 	
 	
