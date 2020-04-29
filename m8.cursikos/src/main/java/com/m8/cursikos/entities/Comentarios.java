@@ -14,51 +14,37 @@ public class Comentarios {
 	private long id;
 	
 	@NotEmpty
-	private long usuario_fk; 
-	
+	private String comentario;
 	
 	@NotEmpty
-	private String Comentario;
+	private String usuario_fk;
 	
 	public Comentarios(){}
 
-	public Comentarios( long usuario_fk,  String comentario) {
-		super();
-		this.usuario_fk = usuario_fk;
-		Comentario = comentario;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public long getUsuario_fk() {
-		return usuario_fk;
-	}
-
-	public void setUsuario_fk(long usuario_fk) {
-		this.usuario_fk = usuario_fk;
-	}
 
 	public String getComentario() {
-		return Comentario;
+		return comentario;
 	}
 
 	public void setComentario(String comentario) {
-		Comentario = comentario;
+		this.comentario = comentario;
+	}
+
+	public String getUsuario_fk() {
+		return usuario_fk;
+	}
+
+	public void setUsuario_fk(String usuario_fk) {
+		this.usuario_fk = usuario_fk;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Comentario == null) ? 0 : Comentario.hashCode());
+		result = prime * result + ((comentario == null) ? 0 : comentario.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + (int) (usuario_fk ^ (usuario_fk >>> 32));
+		result = prime * result + ((usuario_fk == null) ? 0 : usuario_fk.hashCode());
 		return result;
 	}
 
@@ -71,23 +57,26 @@ public class Comentarios {
 		if (getClass() != obj.getClass())
 			return false;
 		Comentarios other = (Comentarios) obj;
-		if (Comentario == null) {
-			if (other.Comentario != null)
+		if (comentario == null) {
+			if (other.comentario != null)
 				return false;
-		} else if (!Comentario.equals(other.Comentario))
+		} else if (!comentario.equals(other.comentario))
 			return false;
 		if (id != other.id)
 			return false;
-		if (usuario_fk != other.usuario_fk)
+		if (usuario_fk == null) {
+			if (other.usuario_fk != null)
+				return false;
+		} else if (!usuario_fk.equals(other.usuario_fk))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Comentarios [id=" + id + ", usuario_fk=" + usuario_fk + ", curso_fk="  + ", Comentario="
-				+ Comentario + "]";
-	}
+		return "Comentarios [id=" + id + ", comentario=" + comentario + ", usuario_fk=" + usuario_fk + "]";
+	} 
+	
 	
 	
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.m8.cursikos.entities.Comentarios;
 import com.m8.cursikos.entities.CompraCurso;
 import com.m8.cursikos.repositorios.CursoRepositorio;
 
@@ -21,6 +22,7 @@ public class MainControlador {
 	public String index(Model model) {
 		model.addAttribute("cursos", cursorepositorio.findAll());
 		model.addAttribute("compraCurso", new CompraCurso());
+		model.addAttribute("comentario", new Comentarios());
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		model.addAttribute("username", authentication.getName());
 

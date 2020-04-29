@@ -6,6 +6,7 @@
 <body>
 	<nav th:replace="~{fragmentos/navAndHeader::nav}"></nav>
 	<div sec:authorize="hasRole('ROLE_USER')" th:replace="~{formCompraCurso::formCompraCurso}"></div>
+	<div sec:authorize="hasRole('ROLE_USER')" th:replace="~{formComentario::formComentario}"></div>
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 </body>
 

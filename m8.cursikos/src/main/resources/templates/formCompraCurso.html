@@ -3,7 +3,7 @@
     
         <div class="container">
             <h1 class=" col-12 justify-content-center align-items-center"> Registrate en nuestros cursos</h1>
-            <form method="post" th:action="@{/registroCurso}" th:object="${compraCurso}">
+            <form method="post" th:action="@{/saveComentario}" th:object="${compraCurso}">
             <!-- Cursos imagenes y checkbox-->
             <div  class="row justify-content-center align-items-center">
                 <div th:each="curso : ${cursos} " class="col-4 justify-content-center align-items-center">
