@@ -28,7 +28,7 @@ public class ComentariosController {
 			model.addAttribute("esBien", "Muchas gracias por tu comentario" + comentario.getUsuario_fk());
 			return "esBien";
 		}else {
-			model.addAttribute("error", "Debe rellenar el campo de texto");
+			model.addAttribute("error", "Debe rellenar el campo de texto para ejecutar el envio");
 			return "error";
 		}
 		
