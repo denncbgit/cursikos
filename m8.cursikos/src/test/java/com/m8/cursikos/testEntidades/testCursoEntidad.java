@@ -2,8 +2,6 @@ package com.m8.cursikos.testEntidades;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.function.IntPredicate;
-
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,7 @@
 package com.m8.cursikos.testEntidades;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
-import static org.junit.Assert.fail;
 
-import org.hibernate.validator.internal.constraintvalidators.bv.AssertFalseValidator;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
