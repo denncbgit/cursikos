@@ -86,7 +86,7 @@ public class RegistroControlador {
 	
 	
 	@GetMapping("/usuario/formLogin")
-	public String formLogin(Model model , Usuario usuario ) {
+	public String formLogin() {
 		return "formLogin";
 		
 	}
