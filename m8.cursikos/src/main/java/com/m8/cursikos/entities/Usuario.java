@@ -127,6 +127,10 @@ public class Usuario {
 
 
 
+	
+
+
+
 
 	@Override
 	public int hashCode() {
