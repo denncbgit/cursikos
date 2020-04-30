@@ -52,7 +52,7 @@ public class RegistroControlador {
 	
 	
 	@Bean
-	private BCryptPasswordEncoder passwordEncoder() {
+	public BCryptPasswordEncoder passwordEncoder() {
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
 	    return bCryptPasswordEncoder;
 	}
