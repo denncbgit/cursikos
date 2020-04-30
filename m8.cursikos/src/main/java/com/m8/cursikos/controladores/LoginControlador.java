@@ -21,7 +21,7 @@ public class LoginControlador {
 	 * @return
 	 */
 	@GetMapping("/formLogin")
-	public String formLogin(Model model , Usuario usuario) {
+	public String formLogin(Model model) {
 		model.addAttribute("usuario", new Usuario());
 		return "formLogin";
 	}
