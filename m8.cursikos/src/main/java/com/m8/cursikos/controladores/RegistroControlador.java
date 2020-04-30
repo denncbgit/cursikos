@@ -46,8 +46,8 @@ public class RegistroControlador {
 	/**
 	 * autocableamos la clase que nos permitira encriptar la contraseña en el registro
 	 */
-	@Autowired
-	BCryptPasswordEncoder bCryptPasswordEncoder;
+//	@Autowired
+//	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	
 	
