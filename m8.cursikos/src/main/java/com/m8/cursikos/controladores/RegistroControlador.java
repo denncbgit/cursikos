@@ -85,10 +85,10 @@ public class RegistroControlador {
 	}
 	
 	
-	@GetMapping("/usuario/formLogin")
-	public String formLogin() {
-		return "formLogin";
-		
-	}
+//	@GetMapping("/formLogin")
+//	public String form(Model model , Usuario usuario ) {
+//		model.addAttribute("usuario", new Usuario());
+//		return "formLogin";
+//	}
 
 }
