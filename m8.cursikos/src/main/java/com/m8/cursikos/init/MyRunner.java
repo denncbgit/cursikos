@@ -50,7 +50,7 @@ public class MyRunner implements CommandLineRunner {
 	    	cursoRepositorio.save(curso2);
 	    	cursoRepositorio.save(curso3);
 		} catch (Exception e) {
-			e.notify();
+			System.out.println("Erro en runner");
 		}
 	    	
     }
