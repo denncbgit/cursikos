@@ -84,6 +84,17 @@ public class RegistroControlador {
 		
 	}
 	
+	/**
+	 * este metodo nos devuelve el formulario de login
+	 * @param model
+	 * @param usuario
+	 * @return
+	 */
+	@GetMapping("/formLogin")
+	public String formLogin(Model model) {
+		model.addAttribute("usuario", new Usuario());
+		return "formLogin";
+	}
 	
 	
 

@@ -10,6 +10,8 @@ import com.m8.cursikos.entities.Usuario;
 import com.m8.cursikos.repositorios.CursoRepositorio;
 import com.m8.cursikos.repositorios.UsuarioRepositorio;
 
+import ch.qos.logback.classic.Logger;
+
 
 /**
  * Esta clase se encarga de insertar ciertos objetos en la base de datos a la hora de iniciar la aplicacion
@@ -50,7 +52,7 @@ public class MyRunner implements CommandLineRunner {
 	    	cursoRepositorio.save(curso2);
 	    	cursoRepositorio.save(curso3);
 		} catch (Exception e) {
-			System.out.println("Erro en runner");
+			
 		}
 	    	
     }
