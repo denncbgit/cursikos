@@ -9,6 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
+/**
+ * Con esta clase manejaremos la seguridad de la aplicacion
+ * @author Nerffren
+ *
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
@@ -25,10 +31,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			return new BCryptPasswordEncoder();
 		}
 		
+		/**
+		 * Comprueba la contraseña del usuario al hacer n
+		 */
 		@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 			auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncode());
 		}
+		
+		/**
+		 * Gestiona la seguridad http, en este caso el formLogin el logout y los permisos
+		 * tanto para usuarios y tipos de usuarios, como para el tipo de archivos a los que
+		 * la aplicacion puede acceder
+		 */
 	 	@Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http

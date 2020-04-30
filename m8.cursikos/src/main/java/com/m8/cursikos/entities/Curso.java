@@ -6,6 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
+
+/**
+ * Entidad encargada de definir el modelo de los cursos
+ * @author Nerffren
+ *
+ */
 @Entity
 public class Curso {
 	@Id

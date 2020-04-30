@@ -10,6 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+/**
+ * Este controlador nos permite mostrar los errores del servidor en la web
+ * @author Nerffren
+ *
+ */
 @Controller
 public class MyErrorController implements ErrorController{
 	

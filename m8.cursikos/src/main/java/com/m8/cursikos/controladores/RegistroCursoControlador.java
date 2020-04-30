@@ -1,6 +1,5 @@
 package com.m8.cursikos.controladores;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,15 +13,33 @@ import com.m8.cursikos.entities.Curso;
 import com.m8.cursikos.repositorios.CompraCursoRepositorio;
 import com.m8.cursikos.repositorios.CursoRepositorio;
 
+/**
+ * Este controlador recibe la peticion del formulario de registro de curso y se encarga
+ * de comprobar los datos y insertarlos en la BBDD
+ * @author Nerffren
+ *
+ */
 @Controller
 public class RegistroCursoControlador {
 	
+	/**
+	 * Autocableamos los repositorios que utilizaremos en esta clase 
+	 * para hacer peticiones a la BBDD
+	 */
 	@Autowired
 	CompraCursoRepositorio compraCursoRepositorio;
 	
 	@Autowired
 	CursoRepositorio cursoRepositorio;
 	
+	
+	/**
+	 * Comprobamos los datos del formulario y devolvemos un feedhback al usuaro
+	 * , del proceso
+	 * @param compraCurso
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/registroCurso")
 	public String registroCurso(CompraCurso compraCurso, Model model) {
 

@@ -12,12 +12,23 @@ import org.springframework.stereotype.Service;
 import com.m8.cursikos.entities.Usuario;
 import com.m8.cursikos.repositorios.UsuarioRepositorio;
 
-
+/**
+ * Esta clase se encargara de gestionar las sessiones de los usuarios
+ * @author Nerffren
+ *
+ */
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService{
+	/**
+	 * Autocableamos el repositorio de Usuario  
+	 */
 	@Autowired
 	UsuarioRepositorio repositorio;
 	
+	/**
+	 * Este metodo se encargara de comprobar si el usuario se encuantra en la aplicacion
+	 * y en el caso de que lo este le creara la session
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = repositorio.findByUsername(username);

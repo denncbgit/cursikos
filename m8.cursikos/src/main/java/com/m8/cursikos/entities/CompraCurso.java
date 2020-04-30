@@ -7,6 +7,12 @@ import javax.persistence.Id;
 
 import com.sun.istack.NotNull;
 
+
+/**
+ * Entidad encargada de dar forma al modelo de que vincula la compra de los cursos con los usuarios
+ * @author Nerffren
+ *
+ */
 @Entity
 public class CompraCurso {
 	

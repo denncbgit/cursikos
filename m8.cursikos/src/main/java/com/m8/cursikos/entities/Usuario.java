@@ -8,6 +8,12 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
+
+/**
+ * Entidad encargada de definir el modelo de usuarios
+ * @author Nerffren
+ *
+ */
 @Entity
 public class Usuario {
 	

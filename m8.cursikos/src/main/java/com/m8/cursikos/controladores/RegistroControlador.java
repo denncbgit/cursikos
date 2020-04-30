@@ -16,15 +16,26 @@ import com.m8.cursikos.entities.Usuario;
 import com.m8.cursikos.repositorios.UsuarioRepositorio;
 
 
-
+/**
+ * Controlador que se encarga de 
+ * @author Nerffren
+ *
+ */
 @Controller
 public class RegistroControlador {
 	
-	//Usamos Autowired para no tener que crear una instancia del objeto en ningún caso dentro de esta clase
+	/**
+	 * Usamos Autowired para no tener que crear una instancia del objeto en ningún caso dentro de esta clase
+	 */
 	@Autowired
 	UsuarioRepositorio usuarioRepositorio;
 	
-	//Mostramos el form registro
+	/**
+	 * Mostramos el form registro
+	 * @param model
+	 * @param usuario
+	 * @return
+	 */
 	@GetMapping("/usuario/formRegistro")
 	public String formRegistro(Model model , Usuario usuario ) {
 		model.addAttribute("usuario", new Usuario());
@@ -32,6 +43,9 @@ public class RegistroControlador {
 		return "formRegistro";
 	}
 	
+	/**
+	 * autocableamos la clase que nos permitira encriptar la contraseña en el registro
+	 */
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
@@ -43,7 +57,13 @@ public class RegistroControlador {
 	    return bCryptPasswordEncoder;
 	}
 	
-	
+	/**
+	 * clase que recibe el usuario del formulario de registro y se encarga de guardarlo en la BBDD
+	 * @param usuario
+	 * @param bindingResult
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/usuario/registro")
 	public String crearUsuario(@Valid  @ModelAttribute("usuario") Usuario usuario,BindingResult bindingResult, Model model) {
 		//Comprobamos si el formulario contiene errores de validacion o si el email del usuario ya existe en la aplicacion
@@ -66,9 +86,5 @@ public class RegistroControlador {
 	
 	
 	
-	@GetMapping("/formLogin")
-	public String formLogin(Model model , Usuario usuario) {
-		model.addAttribute("usuario", new Usuario());
-		return "formLogin";
-	}
+
 }

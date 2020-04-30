@@ -11,7 +11,11 @@ import com.m8.cursikos.repositorios.CursoRepositorio;
 import com.m8.cursikos.repositorios.UsuarioRepositorio;
 
 
-
+/**
+ * Esta clase se encarga de insertar ciertos objetos en la base de datos a la hora de iniciar la aplicacion
+ * @author Nerffren
+ *
+ */
 @Component
 public class MyRunner implements CommandLineRunner {
 	

@@ -6,6 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
+
+/**
+ * Entidad que se encargara de formar el modelo de los comentarios de la aplicacion
+ * @author Nerffren
+ *
+ */
 @Entity
 public class Comentarios {
 	
