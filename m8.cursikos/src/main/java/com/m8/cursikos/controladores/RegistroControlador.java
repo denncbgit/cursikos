@@ -46,8 +46,8 @@ public class RegistroControlador {
 	/**
 	 * autocableamos la clase que nos permitira encriptar la contraseña en el registro
 	 */
-//	@Autowired
-//	BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	
 	
@@ -91,7 +91,7 @@ public class RegistroControlador {
 	 * @return
 	 */
 	@GetMapping("/formLogin")
-	public String formLogin(Model model) {
+	public String formLogin(Model model, Usuario usuario) {
 		model.addAttribute("usuario", new Usuario());
 		return "formLogin";
 	}
