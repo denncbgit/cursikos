@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.m8.cursikos.init","c":"MyRunner","l":"MyRunner()","url":"%3Cinit%3E()"},{"p":"com.m8.cursikos.init","c":"MyRunner","l":"run(String...)","url":"run(java.lang.String...)"}]
